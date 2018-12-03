@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,7 +13,7 @@ namespace WHLDWebApi.Models
     {
         [Key]
         [DisplayName("Id")]
-        public int Id { get; set; }
+        public int PId { get; set; }
 
         [ForeignKey("Task")]
         [DisplayName("任务编号")]
@@ -20,9 +21,11 @@ namespace WHLDWebApi.Models
 
         [ForeignKey("XBInfo")]
         [DisplayName("小班编号")]
-        public int XBId { get; set; }
+        public int XBH { get; set; }
 
+        //[JsonIgnore]
         public virtual Task Task { get; set; }
+
         public virtual XBInfo XBInfo { get; set; }
 
         public virtual ICollection<PlanGhcsRel> PlanGhcsRels { get; set; }

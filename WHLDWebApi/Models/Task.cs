@@ -11,7 +11,7 @@ namespace WHLDWebApi.Models
     {
         [Key]
         [DisplayName("任务Id")]
-        public int Id { get; set; }
+        public int TId { get; set; }
 
         [DisplayName("任务名称")]
         public string Title { get; set; }
@@ -24,6 +24,7 @@ namespace WHLDWebApi.Models
 
         //public virtual Plan Plan { get; set; }
 
+        [DisplayName("计划")]
         public virtual ICollection<Plan> Plans { get; set; }
 
 

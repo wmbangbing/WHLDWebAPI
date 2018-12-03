@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,7 +13,7 @@ namespace WHLDWebApi.Models
     {
         [Key]
         [DisplayName("Id")]
-        public int Id { get; set; }
+        public int PGId { get; set; }
 
         [ForeignKey("Plan")]
         [DisplayName("计划Id")]
@@ -22,7 +23,9 @@ namespace WHLDWebApi.Models
         [DisplayName("管护措施Id")]
         public int GId { get; set; }
 
+        [JsonIgnore]
         public virtual Plan Plan { get; set; }
+
         public virtual Ghcs Ghcs { get; set; }
     }
 }
